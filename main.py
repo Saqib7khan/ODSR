@@ -9,6 +9,10 @@ engine = pyttsx3.init()
 model = torch.hub.load('ultralytics/yolov5', 'yolov5s')  
 # model = cv2.dnn.readNetFromCaffe("MobileNetSSD_deploy.prototxt.txt", "MobileNetSSD_deploy.caffemodel") 
 # Function to perform object detection using YOLOv5
+#making system speak
+from win32com.client import Dispatch
+speak = Dispatch("SAPI.SpVoice").Speak
+speak("Say something")
 def detect_objects(image, target_classes, model):
     # Perform forward pass through the network to detect object
     results = model(image)
